@@ -351,10 +351,47 @@ body[data-view="pr"] .hbar,body[data-view="pr"] #main,body[data-view="pr"] .top>
 .lg .xlw{overflow-x:auto}
 .ls .la table[data-lt]{direction:ltr}
 .ls .la table[data-lt] td,.ls .la table[data-lt] th{text-align:left}
+/* tax brackets + calculator */
+.tax .tx-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px 20px 18px;margin:0 0 16px}
+.tx-h{font-size:17px;margin:0 -20px 12px;padding:12px 20px;border-bottom:1px solid var(--divider)} .tx-sub{font-size:12.5px;font-weight:500;color:var(--text-3)}
+.tx-scroll{overflow-x:auto}
+.tx-grid{border-collapse:collapse;width:100%;min-width:760px;font-size:13px;text-align:center}
+.tx-grid th,.tx-grid td{border:1px solid #9aa3ad;padding:7px 6px}
+.tx-grid th{background:#b4c6e7;font-weight:600;font-size:12.5px}
+.tx-grid td.r{background:#ffd966;font-weight:700;font-family:var(--font-en)}
+.tx-grid td.nx{background:#F1F4F7}
+.tx-grid .on{background:#fff2cc;outline:2px solid #1f4fd1;outline-offset:-2px;font-weight:600}
+.tx-grid th.on{background:#1E5AA8;color:#fff}
+.tx-grid td.nx.on{background:#e9eef5}
+.tx-notes{display:grid;gap:6px;margin-top:12px;font-size:13.5px;color:var(--text-2)}
+.tx-form{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-end}
+.tx-form label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;color:var(--text-2)}
+.tx-form input[type=number],.tx-form select{height:40px;border:1px solid var(--field);border-radius:6px;padding:0 12px;font:inherit;font-size:16px;min-width:200px;background:#fff;direction:ltr;text-align:left}
+.tx-form input:focus,.tx-form select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px var(--focus)}
+.tx-form .tx-chk{flex-direction:row;align-items:center;font-weight:500;height:40px}
+.tx-ex{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--text-3);width:100%}
+.tx-ex button{height:28px;padding:0 10px;border:1px solid var(--border);border-radius:6px;background:var(--surface);cursor:pointer;font-family:var(--font-en);font-size:12.5px;color:var(--primary)}
+.tx-out{margin-top:16px}
+.tx-empty{color:var(--text-3);padding:24px;text-align:center;border:1px dashed var(--border);border-radius:8px}
+.tx-step{display:grid;grid-template-columns:34px 1fr;gap:0 10px;margin:0 0 10px}
+.tx-num{width:28px;height:28px;border-radius:50%;background:#7a5ba6;color:#fff;display:grid;place-items:center;font-weight:700;font-family:var(--font-en);margin-top:6px}
+.tx-sp{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--divider);border-radius:8px;overflow:hidden}
+.tx-a{padding:8px 12px;line-height:1.8}.tx-e{padding:8px 12px;background:var(--en-tint);border-inline-start:1px solid var(--divider);font-family:var(--font-en);text-align:left;line-height:1.7}
+.tx-full{grid-column:2;margin-top:8px;overflow-x:auto}
+.tx-tb{border-collapse:collapse;font-size:13px;min-width:520px}
+.tx-tb th,.tx-tb td{border:1px solid #9aa3ad;padding:6px 10px;text-align:center}
+.tx-tb th{background:#c6e0b4}.tx-tb tr.tot td{background:#f8cbad;font-weight:700}
+.tx-n{unicode-bidi:isolate;font-family:var(--font-en)}
+.tx-mut{color:var(--text-3);font-size:12.5px}
+.tx-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 6px}
+.tx-sum div{border:1px solid var(--border);border-radius:8px;padding:8px 12px;display:flex;flex-direction:column}
+.tx-sum span{font-size:12px;color:var(--text-3)} .tx-sum b{font-family:var(--font-mono);font-size:18px;color:var(--primary);text-align:right}
+.tx-foot{margin-top:8px}
+@media (max-width:720px){.tx-sp{grid-template-columns:1fr}.tx-e{border-inline-start:0;border-top:1px dashed var(--divider)}.tx-full{grid-column:1/-1}.tx-sum{grid-template-columns:1fr 1fr}.tax .tx-card{padding:4px 12px 14px}.tx-h{margin:0 -12px 10px;padding:10px 12px}}
 mark.lm{background:#FFE58A;color:inherit;border-radius:2px;padding:0 1px}
 .prhost{padding-block:16px 60px}
 .dl{height:34px;display:inline-flex;align-items:center;padding:0 12px;border:1px solid var(--primary);border-radius:6px;color:var(--primary);font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap}
-#prseg button{height:34px;font-size:13px}
+#prseg{max-width:100%;overflow-x:auto}#prseg button{height:34px;font-size:13px}
 @media (max-width:720px){.lg{padding:2px 14px 14px}.lgh{margin:0 -14px 10px;padding:10px 14px;font-size:16px}.lbar{position:static}.vnav button{padding:0 12px;font-size:13px}}
 .dl{height:34px;display:inline-flex;align-items:center;padding:0 12px;border:1px solid var(--primary);border-radius:6px;color:var(--primary);font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap}.dl:hover{background:var(--info-bg)}
 </style>
@@ -7199,10 +7236,98 @@ mark.lm{background:#FFE58A;color:inherit;border-radius:2px;padding:0 1px}
 </section>
 <section id="prView" class="view" hidden>
   <div class="lbar"><div class="wrap lrow">
-    <div class="seg" id="prseg"><button data-d="merit" class="on">مسائل الـ Merit Matrix</button><button data-d="pms">مسائل الـ PMS (قبل وبعد)</button></div>
+    <div class="seg" id="prseg"><button data-d="merit" class="on">مسائل الـ Merit Matrix</button><button data-d="pms">مسائل الـ PMS (قبل وبعد)</button><button data-d="tax">الضرائب: الشرائح + حاسبة</button></div>
     <a class="dl" id="prdl" href="./HRM_Merit_Matrix_Problems.pdf" download>⬇ نزّل الـ PDF</a>
   </div></div>
-  <div class="wrap"><div id="prhost-merit" class="prhost"></div><div id="prhost-pms" class="prhost" hidden></div></div>
+  <div class="wrap"><div id="prhost-merit" class="prhost"></div><div id="prhost-pms" class="prhost" hidden></div><div id="prhost-tax" class="prhost tax" hidden>
+  <div class="tx-card">
+    <h2 class="tx-h">جدول شرائح ضريبة الدخل <span class="tx-sub">زي سلايد الدكتور (L18، شريحة 75) — صافي الدخل السنوي</span></h2>
+    <div class="tx-scroll"><table class="tx-grid" id="txgrid">
+      <tr><th>سعر الضريبة</th><th data-c="0">صافي الدخل اللي <b>لم يتجاوز 600 ألف</b></th><th data-c="1">تجاوز 600 ألف ولم يتجاوز 700 ألف</th><th data-c="2">تجاوز 700 ألف ولم يتجاوز 800 ألف</th><th data-c="3">تجاوز 800 ألف ولم يتجاوز 900 ألف</th><th data-c="4">تجاوز 900 ألف ولم يتجاوز 1.2 مليون</th><th data-c="5">أكثر من 1.2 مليون</th></tr>
+      <tr><td class="r">0%</td><td data-c="0">من 1 جنيه إلى 40,000</td><td class="nx" data-c="1"></td><td class="nx" data-c="2"></td><td class="nx" data-c="3"></td><td class="nx" data-c="4"></td><td class="nx" data-c="5"></td></tr>
+      <tr><td class="r">10%</td><td data-c="0">أكثر من 40,000 إلى 55,000</td><td data-c="1">من 1 جنيه إلى 55,000</td><td class="nx" data-c="2"></td><td class="nx" data-c="3"></td><td class="nx" data-c="4"></td><td class="nx" data-c="5"></td></tr>
+      <tr><td class="r">15%</td><td data-c="0">أكثر من 55,000 إلى 70,000</td><td data-c="1">أكثر من 55,000 إلى 70,000</td><td data-c="2">من 1 جنيه إلى 70,000</td><td class="nx" data-c="3"></td><td class="nx" data-c="4"></td><td class="nx" data-c="5"></td></tr>
+      <tr><td class="r">20%</td><td data-c="0">أكثر من 70,000 إلى 200,000</td><td data-c="1">أكثر من 70,000 إلى 200,000</td><td data-c="2">أكثر من 70,000 إلى 200,000</td><td data-c="3">من 1 جنيه إلى 200,000</td><td class="nx" data-c="4"></td><td class="nx" data-c="5"></td></tr>
+      <tr><td class="r">22.5%</td><td data-c="0">أكثر من 200,000 إلى 400,000</td><td data-c="1">أكثر من 200,000 إلى 400,000</td><td data-c="2">أكثر من 200,000 إلى 400,000</td><td data-c="3">أكثر من 200,000 إلى 400,000</td><td data-c="4">من 1 جنيه إلى 400,000</td><td class="nx" data-c="5"></td></tr>
+      <tr><td class="r">25%</td><td data-c="0">ما زاد على 400,000</td><td data-c="1">ما زاد على 400,000</td><td data-c="2">ما زاد على 400,000</td><td data-c="3">ما زاد على 400,000</td><td data-c="4">ما زاد على 400,000</td><td data-c="5">من 1 جنيه إلى 1,200,000</td></tr>
+      <tr><td class="r">27.5%</td><td class="nx" data-c="0"></td><td class="nx" data-c="1"></td><td class="nx" data-c="2"></td><td class="nx" data-c="3"></td><td class="nx" data-c="4"></td><td data-c="5">ما زاد على 1,200,000</td></tr>
+    </table></div>
+    <div class="tx-notes">
+      <div><b>القاعدة المهمة:</b> كل ما الدخل يكبر والعمود يتنقل لليمين، <b>الشرايح الصغيرة بتختفي</b> (أول عمود بس فيه 0%). يعني اللي دخله فوق 600 ألف بيخسر الإعفاء 40,000.</div>
+      <div><b>التأمينات (L18، شريحة 77 و81):</b> حصة الموظف <b>11%</b> (9% معاش + 1% صحي + 1% نهاية خدمة) على الأجر التأميني بين الحد الأدنى والأقصى للسنة (2026: 2,700 – 16,700). حصة صاحب العمل 18.75%.</div>
+    </div>
+  </div>
+
+  <div class="tx-card">
+    <h2 class="tx-h">اكتب المرتب وأنا أشرحلك الحل خطوة بخطوة</h2>
+    <div class="tx-form">
+      <label>المرتب الشهري الإجمالي (الخاضع)<input id="txsal" type="number" inputmode="decimal" min="0" step="any" placeholder="مثلًا 10000"></label>
+      <label>السنة (لحدود التأمينات)<select id="txyear"><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option selected>2026</option><option>2027</option></select></label>
+      <label class="tx-chk"><input id="txins" type="checkbox" checked> اطرح تأمينات الموظف الأول (طريقة الدكتور)</label>
+      <div class="tx-ex">جرّب: <button data-v="8000">8,000</button><button data-v="10000">10,000</button><button data-v="25000">25,000</button><button data-v="52000">52,000</button><button data-v="110000">110,000</button></div>
+    </div>
+    <div id="txout" class="tx-out"><div class="tx-empty">اكتب أي مرتب فوق وهيظهر الحل هنا لوحده.</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  const LIM={2020:[1000,7000],2021:[1200,8100],2022:[1400,9400],2023:[1700,10900],2024:[2000,12600],2025:[2300,14500],2026:[2700,16700],2027:[3200,19300]};
+  // each column: list of [from,to,rate] on annual net income
+  const COLS=[
+    {max:600000,ar:"لم يتجاوز 600 ألف",en:"not over 600,000",b:[[0,40000,0],[40000,55000,.10],[55000,70000,.15],[70000,200000,.20],[200000,400000,.225],[400000,Infinity,.25]]},
+    {max:700000,ar:"تجاوز 600 ألف ولم يتجاوز 700 ألف",en:"over 600,000 up to 700,000",b:[[0,55000,.10],[55000,70000,.15],[70000,200000,.20],[200000,400000,.225],[400000,Infinity,.25]]},
+    {max:800000,ar:"تجاوز 700 ألف ولم يتجاوز 800 ألف",en:"over 700,000 up to 800,000",b:[[0,70000,.15],[70000,200000,.20],[200000,400000,.225],[400000,Infinity,.25]]},
+    {max:900000,ar:"تجاوز 800 ألف ولم يتجاوز 900 ألف",en:"over 800,000 up to 900,000",b:[[0,200000,.20],[200000,400000,.225],[400000,Infinity,.25]]},
+    {max:1200000,ar:"تجاوز 900 ألف ولم يتجاوز 1.2 مليون",en:"over 900,000 up to 1.2M",b:[[0,400000,.225],[400000,Infinity,.25]]},
+    {max:Infinity,ar:"أكثر من 1.2 مليون",en:"over 1.2M",b:[[0,1200000,.25],[1200000,Infinity,.275]]}];
+  const r2=x=>Math.round(x*100)/100;
+  const f=x=>r2(x).toLocaleString("en-US",{maximumFractionDigits:2});
+  const pc=x=>(r2(x*100))+"%";
+  const L=s=>'<span class="tx-n" dir="ltr">'+s+'</span>';
+  const sal=document.getElementById("txsal"),yr=document.getElementById("txyear"),ins=document.getElementById("txins"),out=document.getElementById("txout");
+  function step(n,ar,en,html){return '<section class="tx-step"><div class="tx-num">'+n+'</div><div class="tx-sp"><div class="tx-a">'+ar+'</div><div class="tx-e" dir="ltr" lang="en">'+en+'</div></div>'+(html?'<div class="tx-full">'+html+'</div>':'')+'</section>'}
+  function run(){
+    const S=parseFloat(sal.value);
+    document.querySelectorAll("#txgrid [data-c]").forEach(c=>c.classList.remove("on"));
+    if(!(S>0)){out.innerHTML='<div class="tx-empty">اكتب أي مرتب فوق وهيظهر الحل هنا لوحده.</div>';return}
+    const y=+yr.value,[mn,mx]=LIM[y];let h="",n=1,I=0,IW=0,ER=0;
+    if(ins.checked){
+      IW=Math.min(Math.max(S,mn),mx);I=r2(IW*.11);ER=r2(IW*.1875);
+      const why=S>mx?('المرتب أكبر من الحد الأقصى '+L(f(mx))+' فبنحسب على الحد الأقصى بس'):S<mn?('المرتب أقل من الحد الأدنى '+L(f(mn))+' فبنحسب على الحد الأدنى'):'المرتب بين الحد الأدنى والأقصى فبنحسب عليه هو';
+      const whyE=S>mx?('salary is above the '+y+' cap '+f(mx)+', so only the cap is insured'):S<mn?('salary is below the '+y+' minimum '+f(mn)+', so the minimum is insured'):'salary is within the '+y+' limits';
+      h+=step(n++,'<b>الأجر التأميني:</b> حدود سنة '+y+' من '+L(f(mn))+' لـ '+L(f(mx))+' — '+why+' ← الأجر التأميني = <b>'+L(f(IW))+'</b>.',
+        '<b>Insured wage:</b> '+whyE+' → insured wage = <b>'+f(IW)+'</b>.');
+      h+=step(n++,'<b>تأمينات الموظف (11%):</b> '+L(f(IW)+' × 11% = <b>'+f(I)+'</b>')+' في الشهر. <span class="tx-mut">(وحصة صاحب العمل 18.75% = '+L(f(ER))+' — مش بتتخصم من الموظف.)</span>',
+        '<b>Employee social insurance (11%):</b> '+f(IW)+' × 11% = <b>'+f(I)+'</b> a month. <span class="tx-mut">(Employer 18.75% = '+f(ER)+', not deducted from the employee.)</span>');
+    }
+    const A=r2((S-I)*12);
+    const ci=COLS.findIndex(c=>A<=c.max),C=COLS[ci];
+    document.querySelectorAll('#txgrid [data-c="'+ci+'"]').forEach(c=>c.classList.add("on"));
+    h+=step(n++,'<b>صافي الدخل السنوي:</b> '+L('('+f(S)+(I?' − '+f(I):'')+') × 12 = <b>'+f(A)+'</b>')+' ← يقع في عمود <b>«'+C.ar+'»</b> (متلوّن في الجدول فوق).',
+      '<b>Annual net income:</b> ('+f(S)+(I?' − '+f(I):'')+') × 12 = <b>'+f(A)+'</b> → column <b>"'+C.en+'"</b> (highlighted above).');
+    let rows="",T=0;
+    for(const [a,b,r] of C.b){
+      if(A<=a)break;const top=Math.min(A,b),amt=r2(top-a),t=r2(amt*r);T=r2(T+t);
+      rows+='<tr><td>'+(a===0?'من 1 جنيه':'أكثر من '+f(a))+' إلى '+f(top)+'</td><td dir="ltr">'+f(amt)+'</td><td>'+pc(r)+'</td><td dir="ltr">'+f(amt)+' × '+pc(r)+' = <b>'+f(t)+'</b></td></tr>';
+    }
+    const tbl='<table class="tx-tb"><tr><th>الشريحة</th><th>المبلغ في الشريحة</th><th>السعر</th><th>الضريبة</th></tr>'+rows+'<tr class="tot"><td colspan="3">الضريبة السنوية</td><td dir="ltr"><b>'+f(T)+'</b></td></tr></table>';
+    const lost=ci>0?' <b>خد بالك:</b> عشان الدخل فوق 600 ألف، الشريحة الصفرية (والشرايح الصغيرة) مش موجودة في العمود ده.':'';
+    const lostE=ci>0?' <b>Note:</b> above 600,000 the 0% band (and the lower bands) no longer apply in this column.':'';
+    h+=step(n++,'<b>نحسب كل شريحة في العمود ده لوحدها ونجمع:</b>'+lost,'<b>Tax each band of this column separately, then add:</b>'+lostE,tbl);
+    const M=r2(T/12),net=r2(S-I-M);
+    h+=step(n++,'<b>الضريبة الشهرية:</b> '+L(f(T)+' ÷ 12 = <b>'+f(M)+'</b>')+' جنيه.','<b>Monthly tax:</b> '+f(T)+' ÷ 12 = <b>'+f(M)+'</b> EGP.');
+    h+=step(n++,'<b>صافي المرتب:</b> '+L(f(S)+(I?' − '+f(I):'')+' − '+f(M)+' = <b>'+f(net)+'</b>')+' جنيه في الشهر.','<b>Net salary:</b> '+f(S)+(I?' − '+f(I):'')+' − '+f(M)+' = <b>'+f(net)+'</b> EGP a month.');
+    h+='<div class="tx-sum"><div><span>التأمينات</span><b dir="ltr">'+f(I)+'</b></div><div><span>الضريبة الشهرية</span><b dir="ltr">'+f(M)+'</b></div><div><span>الضريبة السنوية</span><b dir="ltr">'+f(T)+'</b></div><div><span>صافي المرتب</span><b dir="ltr">'+f(net)+'</b></div></div>';
+    h+='<div class="tx-mut tx-foot">الترتيب زي الدكتور: اطرح التأمينات ← اضرب في 12 ← حدد العمود ← احسب كل شريحة ← اقسم على 12. الحاسبة دي للمذاكرة (من غير بدلات معفاة أو إعفاء شخصي 20,000 لأنه مش في السلايد).</div>';
+    out.innerHTML=h;
+  }
+  let t;[sal,yr,ins].forEach(e=>e.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(run,150)}));
+  ins.addEventListener("change",run);
+  document.querySelector(".tx-ex").addEventListener("click",e=>{const b=e.target.closest("button");if(b){sal.value=b.dataset.v;run()}});
+  window.__txCheck=function(v){sal.value=v;run();return out.innerText};
+})();
+</script>
+</div>
   <template id="tpl-merit"><style>
 
 
@@ -7717,6 +7842,7 @@ drawChips();refresh();
   const PDF={merit:"./HRM_Merit_Matrix_Problems.pdf",pms:"./HRM_PMS_KPI_Problems.pdf"};
   function openDoc(d){
     curDoc=d;
+    document.getElementById("prhost-tax").hidden=(d!=="tax");
     for(const k of ["merit","pms"]){
       const host=document.getElementById("prhost-"+k);host.hidden=(k!==d);
       if(k===d&&!opened[k]){
@@ -7726,7 +7852,7 @@ drawChips();refresh();
       }
     }
     document.querySelectorAll("#prseg button").forEach(b=>b.classList.toggle("on",b.dataset.d===d));
-    const a=document.getElementById("prdl");a.href=PDF[d];a.setAttribute("download",PDF[d].slice(2));
+    const a=document.getElementById("prdl");a.hidden=!PDF[d];if(!PDF[d])return;a.href=PDF[d];a.setAttribute("download",PDF[d].slice(2));
   }
   document.getElementById("prseg").addEventListener("click",e=>{const b=e.target.closest("button");if(b){openDoc(b.dataset.d);window.scrollTo(0,0)}});
 
